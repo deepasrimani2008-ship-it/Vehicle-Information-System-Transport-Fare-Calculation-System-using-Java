@@ -1,0 +1,2 @@
+# Vehicle-Information-System-Transport-Fare-Calculation-System-using-Java
+This repository contains Java OOP mini projects including a Transport Fare Calculation System and a Vehicle Information System. It demonstrates OOP concepts like classes, objects, inheritance, and method overriding. The projects calculate fares for transport types and display vehicle details using Java console applications for learning and practice
