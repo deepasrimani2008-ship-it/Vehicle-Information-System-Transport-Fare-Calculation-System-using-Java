@@ -1,0 +1,90 @@
+import java.util.*;
+class Vehicle {
+    String brand;
+    int speed;
+    String fuelType;
+    double price;
+    Vehicle(String brand, int speed, String fuelType, double price) {
+        this.brand = brand;
+        this.speed = speed;
+        this.fuelType = fuelType;
+        this.price = price;
+    }
+    void display() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Speed: " + speed + " km/h");
+        System.out.println("Fuel Type: " + fuelType);
+        System.out.println("Price: " + price);
+    }
+}
+class Car extends Vehicle {
+    int doors;
+
+    Car(String brand, int speed, String fuelType, double price, int doors) {
+        super(brand, speed, fuelType, price);
+        this.doors = doors;
+    }
+    void displayCar() {
+        display();
+        System.out.println("Number of Doors: " + doors);
+    }
+}
+class Bike extends Vehicle {
+    boolean hasGear;
+    Bike(String brand, int speed, String fuelType, double price, boolean hasGear) {
+        super(brand, speed, fuelType, price);
+        this.hasGear = hasGear;
+    }
+    void displayBike() {
+        display();
+        if (hasGear)
+            System.out.println("Bike has Gear");
+        else
+            System.out.println("Bike has No Gear");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1. Car");
+        System.out.println("2. Bike");
+        System.out.print("Enter choice: ");
+        int choice = sc.nextInt();
+        sc.nextLine();  
+        if (choice == 1) {
+            System.out.print("Enter Brand: ");
+            String brand = sc.nextLine();
+            System.out.print("Enter Speed: ");
+            int speed = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Enter Fuel Type: ");
+            String fuel = sc.nextLine();
+            System.out.print("Enter Price: ");
+            double price = sc.nextDouble();
+            System.out.print("Enter Number of Doors: ");
+            int doors = sc.nextInt();
+            Car c = new Car(brand, speed, fuel, price, doors);
+            System.out.println("\nCar Details:");
+            c.displayCar();
+        }
+        else if (choice == 2) {
+            System.out.print("Enter Brand: ");
+            String brand = sc.nextLine();
+            System.out.print("Enter Speed: ");
+            int speed = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Enter Fuel Type: ");
+            String fuel = sc.nextLine();
+            System.out.print("Enter Price: ");
+            double price = sc.nextDouble();
+            System.out.print("Has Gear (true/false): ");
+            boolean gear = sc.nextBoolean();
+            Bike b = new Bike(brand, speed, fuel, price, gear);
+            System.out.println("\nBike Details:");
+            b.displayBike();
+        }
+        else {
+            System.out.println("Invalid Choice");
+        }
+    }
+}

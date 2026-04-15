@@ -1,0 +1,73 @@
+import java.util.*;
+class Transport {
+    String name;
+    Transport(String name) {
+        this.name = name;
+    }
+    void calculateFare(int distance) {
+        System.out.println("General transport fare");
+    }
+    void display() {
+        System.out.println("Transport Type: " + name);
+    }
+}
+class Bus extends Transport {
+    Bus() {
+        super("Bus");
+    }
+    void calculateFare(int distance) {
+        int fare = distance * 5;
+        System.out.println("Bus Fare = " + fare);
+    }
+}
+class Train extends Transport {
+    Train() {
+        super("Train");
+    }
+    void calculateFare(int distance) {
+        int fare = distance * 8;
+        System.out.println("Train Fare = " + fare);
+    }
+}
+class Flight extends Transport {
+    Flight() {
+        super("Flight");
+    }
+    void calculateFare(int distance) {
+        int fare = distance * 20;
+        System.out.println("Flight Fare = " + fare);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1. Bus");
+        System.out.println("2. Train");
+        System.out.println("3. Flight");
+        System.out.print("Choose Transport: ");
+        int choice = sc.nextInt();
+        System.out.print("Enter distance: ");
+        int distance = sc.nextInt();
+        Transport t;
+        if(choice == 1) {
+            System.out.println("You selected Bus");
+            t = new Bus();
+        }
+        else if(choice == 2) {
+            System.out.println("You selected Train");
+            t = new Train();
+        }
+        else if(choice == 3) {
+            System.out.println("You selected Flight");
+            t = new Flight();
+        }
+        else {
+            System.out.println("Invalid choice!");
+            return;
+        }
+        t.display();
+        t.calculateFare(distance);
+    }
+}
+
